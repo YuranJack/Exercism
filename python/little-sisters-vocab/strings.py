@@ -11,7 +11,6 @@ from pickle import APPEND
 from posixpath import split
 from sys import prefix
 from tkinter import Y
-import re
 
 
 def add_prefix_un(word):
