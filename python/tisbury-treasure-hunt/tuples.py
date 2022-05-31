@@ -1,6 +1,5 @@
 """Functions to help Azara and Rui locate pirate treasure."""
 
-
 def get_coordinate(record):
     """Return coordinate value from a tuple containing the treasure name, and treasure coordinate.
 
@@ -8,7 +7,7 @@ def get_coordinate(record):
     :return: str - the extracted map coordinate.
     """
 
-    pass
+    return record[-1]
 
 
 def convert_coordinate(coordinate):
@@ -17,9 +16,7 @@ def convert_coordinate(coordinate):
     :param coordinate: str - a string map coordinate
     :return: tuple - the string coordinate split into its individual components.
     """
-
-    pass
-
+    return tuple(coordinate)
 
 def compare_records(azara_record, rui_record):
     """Compare two record types and determine if their coordinates match.
@@ -29,8 +26,7 @@ def compare_records(azara_record, rui_record):
     :return: bool - do the coordinates match?
     """
 
-    pass
-
+    return tuple(azara_record[-1]) in rui_record
 
 def create_record(azara_record, rui_record):
     """Combine the two record types (if possible) and create a combined record group.
@@ -40,7 +36,9 @@ def create_record(azara_record, rui_record):
     :return: tuple or str - the combined record (if compatible), or the string "not a match" (if incompatible).
     """
 
-    pass
+    if tuple(azara_record[-1]) in rui_record:
+        return azara_record + rui_record
+    return 'not a match'
 
 
 def clean_up(combined_record_group):
@@ -53,5 +51,4 @@ def clean_up(combined_record_group):
 
     (see HINTS.md for an example).
     """
-
-    pass
+    return ''.join([f'{(record[0], record[2], record[3], record[4])}\n' for record in combined_record_group])
