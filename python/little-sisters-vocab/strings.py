@@ -1,18 +1,5 @@
 """Functions for creating, transforming, and adding prefixes to strings."""
 
-
-from ast import Index, Pass
-from dataclasses import replace
-from hashlib import new
-from mimetypes import suffix_map
-from operator import index, le, ne
-from pdb import line_prefix
-from pickle import APPEND
-from posixpath import split
-from sys import prefix
-from tkinter import Y
-
-
 def add_prefix_un(word):
     """Take the given word and add the 'un' prefix.
 
@@ -20,7 +7,7 @@ def add_prefix_un(word):
     :return: str - of root word prepended with 'un'.
     """
 
-    return f"un{word}"
+    return f'un{word}'
 
 
 def make_word_groups(vocab_words):
@@ -54,10 +41,8 @@ def remove_suffix_ness(word):
     if word.endswith('ness'):
         new_line = word[: -len('ness')]
     if new_line.endswith('i'):
-        new_line = new_line[: -1] + "y"
+        new_line = new_line[: -1] + 'y'
     return new_line
-
-        
 
 def adjective_to_verb(sentence, index):
     """Change the adjective within the sentence to a verb.
@@ -70,4 +55,3 @@ def adjective_to_verb(sentence, index):
     """
     separete = sentence[: -1].split()
     return separete[index] + 'en'
-    

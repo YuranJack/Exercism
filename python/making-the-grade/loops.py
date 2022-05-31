@@ -23,7 +23,7 @@ def count_failed_students(student_scores):
         if note <= 40:
             reproved_count += 1
     return reproved_count
-    
+
 
 def above_threshold(student_scores, threshold):
     """Determine how many of the provided student scores were 'the best' based on the provided threshold.
@@ -34,7 +34,7 @@ def above_threshold(student_scores, threshold):
     """
     best_notes = []
     for note in student_scores:
-        if(note >= threshold):
+        if note >= threshold:
             best_notes.append(note)
     return best_notes
 
@@ -65,10 +65,10 @@ def student_ranking(student_scores, student_names):
     :return: list - of strings in format ["<rank>. <student name>: <score>"].
     """
     student_rank = []
-    for index, student in enumerate(student_names):
+    for index in enumerate(student_names):
         student_rank.append(f'{index + 1}. {student_names[index]}: {student_scores[index]}')
     return student_rank
-    
+
 
 def perfect_score(student_info):
     """Create a list that contains the name and grade of the first student to make a perfect score on the exam.
@@ -77,6 +77,6 @@ def perfect_score(student_info):
     :return: list - first `[<student name>, 100]` or `[]` if no student score of 100 is found.
     """
     for score in student_info:
-        if(score.count(100)):
+        if score.count(100):
             return score
     return []
